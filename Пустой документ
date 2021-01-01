@@ -1,0 +1,65 @@
+CentOS Linux release 7.9.2009
+
+install nginx
+
+fedorkuzminih.fvds.ru
+
+testadmin 32u&*G6rf(D
+
+error_log = /var/log/php-fpm/error.log
+/etc/php-fpm.d/*.conf
+
+/etc/letsencrypt/live/fedorkuzminih.fvds.ru/fullchain.pem
+   Your key file has been saved at:
+   /etc/letsencrypt/live/fedorkuzminih.fvds.ru/privkey.pem
+
+
+
+/srv/www/joomla
+
+/etc/php-fpm.d/www.conf сохранен как /etc/php-fpm.d/www.conf.rpmsave
+
+CREATE DATABASE myjoomla
+MariaDB [(none)]> GRANT ALL ON myjoomla.* TO joomlauser@localhost IDENTIFIED BY '!QAZ1qaz23';
+
+-rw-r--r-- 1 root root  356 дек  8 14:26 joomla.access.log
+-rw-r--r-- 1 root root 1396 дек  8 14:26 joomla.log
+
+include /etc/nginx/fastcgi_params;
+
+2020/12/08 16:34:12 [error] 23065#0: *9 FastCGI sent in stderr: "PHP message: PHP Warning:  session_write_close(): open(/var/lib/php/session/sess_ilmqnrbogpsb51tkg84us7ll47, O_RDWR) failed: No such file or directory (2) in /srv/www/joomla/libraries/joomla/session/handler/native.php on line 194
+PHP message: PHP Warning:  session_write_close(): Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/var/lib/php/session) in /srv/www/joomla/libraries/joomla/session/handler/native.php on line 194" while reading upstream, client: 141.105.50.117, server: fedorkuzminih.fvds.ru, request: "GET /installation/index.php HTTP/1.1", upstream: "fastcgi://unix:/var/run/php-fpm/php-fpm.sock:", host: "fedorkuzminih.fvds.ru", referrer: "http://fedorkuzminih.fvds.ru/installation/index.php"
+[root@consultant ~]# 
+
+
+
+
+/var/opt/remi/php73/lib/php/session
+
+/var/lib/php/session/              
+php_value[soap.wsdl_cache_dir]  = /var/lib/php/wsdlcache
+php_value[opcache.file_cache]  = /var/lib/php/opcache
+
+
+nano /srv/www/joomla/libraries/joomla/session/handler/native.php
+
+#  mysql:
+#    build:
+#      context: ./mysql/
+#      dockerfile: Dockerfile
+#    environment:
+#      MYSQL_ROOT_PASSWORD: erfdsq23d
+#      MYSQL_DATABASE: myjoomla1
+#      MYSQL_USER: joomlauser
+#      MYSQL_PASSWORD: QAZ1qaz23
+#
+#
+#    ports:
+#      - 3306:3306
+#    volumes:
+#      - ./mysql/joomla1/my.cnf:/etc/mysql/my.cnf
+#      - ./mysql/joomla1/data/:/var/lib/mysql/
+#      - ./mysql/joomla1/logs/:/var/log/mysql/
+
+
+
